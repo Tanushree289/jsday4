@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY 3 </title>
+    <style>
+        body {background-color: rgb(5, 1, 7);}
+        h3   {color: rgb(226, 5, 5);}
+        pre    {color: rgb(0, 139, 97);}
+        </style>
+</head>
+<body>
+    <hr>
+
+    <h3>
+              What is a Temporal Dead Zone?
+
+    </h3>
+    <br>
+
+    <pre>
+
+        Temporal Dead Zone and Hoisting are two essential terms in JavaScript. But understanding how they work can easily confuse you if you don't approach them properly.
+
+        A temporal dead zone (TDZ) is the area of a block where a variable is inaccessible until the moment the computer completely initializes it with a value.
+
+
+        A block is a pair of braces ({...}) used to group multiple statements.
+        Initialization occurs when you assign an initial value to a variable.
+
+        {
+            // bestFood’s TDZ starts here (at the beginning of this block’s local scope)
+            // bestFood’s TDZ continues here
+            // bestFood’s TDZ continues here
+            // bestFood’s TDZ continues here
+            console.log(bestFood); // returns ReferenceError because bestFood’s TDZ continues here
+            // bestFood’s TDZ continues here
+            // bestFood’s TDZ continues here
+            let bestFood = "Vegetable Fried Rice"; // bestFood’s TDZ ends here
+            // bestFood’s TDZ does not exist here
+            // bestFood’s TDZ does not exist here
+            // bestFood’s TDZ does not exist here
+          }
+
+    </pre>
+    <hr>
+
+
+    <h3>   What is the for-in loop in JavaScript? Give its syntax   </h3>
+<br>
+
+<pre>
+    The for...in loop is used to loop through an object's properties. As we have not discussed Objects yet, you may not feel comfortable with this loop. But once you understand how objects behave in JavaScript, you will find this loop very useful.
+
+Syntax
+The syntax of ‘for..in’ loop is −
+for (variablename in object) {
+   statement or block to execute
+}
+In each iteration, one property from object is assigned to variablename and this loop continues till all the properties of the object are exhausted.
+
+
+
+</pre>
+
+
+<hr>
+
+
+<h3>   Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript   </h3>
+<br>
+
+<pre>
+
+    Scope:
+
+    Scope in JavaScript actually determines the accessibility of variables and functions at various parts in one’s own code or program.
+    In other words, Scope will help us to determine a given part of a code or a program, what variables or functions one could access and what variables or functions one cannot access.
+    Within a scope itself, a variable or a function, or a method could be accessed. Outside the specified scope of a variable or function, the data cannot be accessed.
+    There are three types of scopes available in JavaScript: Global Scope, Local / Function Scope, and Block Scope. Let us try to understand each one of them briefly in the following section.
+
+
+    Local or Function Scope:
+
+    Variables that are declared inside a function or a method have Local or Function Scope.
+    It means those variables or functions which are declared inside the function or a method can be accessed within that function only.
+
+    Scope Chain:
+
+    JavaScript engine uses scopes to find out the exact location or accessibility of variables and that particular process is known as Scope Chain.
+    Scope Chain means that one variable has a scope (it may be global or local/function or block scope) is used by another variable or function having another scope (may be global or local/function or block scope).
+    This complete chain formation goes on and stops when the user wishes to stop it according to the requirement.
+    
+
+</pre>
+
+
+<hr>
+
+
+
+
+<h3>    What is difference between null and undefined and where to use what?  </h3>
+<br>
+
+<pre>
+
+    undefined and null variables oftentimes go hand-in-hand, and some use the terms interchangeably. Though, there is a difference between them:
+
+    undefined is a variable that refers to something that doesn't exist, and the variable isn't defined to be anything.
+    null is a variable that is defined but is missing a value.
+
+    let a;
+    console.log(a); // undefined
+    
+    let b = null;
+    console.log(b); // null
+
+a is undefined - it's not assigned to anything, and there's no clear definition as to what it really is. b is defined as a null-value.
+
+
+Whether b was straight up defined as null or defined as the returned value of a function (that just turns out to return a null value) doesn't matter - it's defined as something.
+
+On the other hand, a is quite literally nothing. No assignment was done and it's fully unclear what it should or could be.
+
+</pre>
+
+
+<hr>
+
+
+
+<h3> what is Symbol?    </h3>
+<br>
+
+<pre>
+    Symbol is a primitive data type of JavaScript, along with string, number, boolean, null and undefined.
+
+    It’s a very peculiar data type. Once you create a symbol, its value is kept private and for internal use.
+
+
+</pre>
+
+
+<hr>
+
+
+<h3>   Write code to explain map and filter in arrays   </h3>
+<br>
+
+<pre>
+Map
+The map() method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
+Syntax
+var new_array = arr.map(function callback(element, index, array) {
+    // Return value for new_array
+}[, thisArg])
+In the callback, only the array element is required. Usually some action is performed on the value and then a new value is returned.
+
+Example
+In the following example, each number in an array is doubled.
+
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(item => item * 2);
+console.log(doubled); // [2, 4, 6, 8]
+
+filter array
+The JavaScript filter array function is used to filter an array based on specified criteria. After filtering it returns an array with the values that pass the filter.
+
+The JavaScript filter function iterates over the existing values in an array and returns the values that pass. The search criteria in the JavaScript filter function are passed using a callbackfn.
+
+Arrow functions can also be used to make JavaScript filter array code more readable.
+let freelancers = [{name: "Harry", skill: "JavaScript"},{name: "Mark", skill: "Python"},{name: "David", skill:"JavaScript"}];
+
+let javascript_freelancers = freelancers.filter(function(freelancer) {
+    return freelancer.skill == "JavaScript"; });
+
+console.log(javascript_freelancers);
+
+//Output = [{ name: "Harry", skill: "JavaScript" }, { name: "David", skill: "JavaScript" }]
+
+
+</pre>
+
+
+<hr>
+
+<h3>   Explain passed by value and passed by reference   </h3>
+<br>
+
+<pre>
+
+    Pass By Value: In Pass by value, function is called by directly passing the value of the variable as an argument. So any changes made inside the function does not affect the original value.
+
+    In Pass by value, parameters passed as an arguments create its own copy. So any changes made inside the function is made to the copied value not to the original value .
+
+    function Passbyvalue(a, b) {
+        let tmp;
+        tmp = b;
+        b = a;
+        a = tmp;
+        console.log(`Inside Pass by value 
+            function -> a = ${a} b = ${b}`);
+    }
+      
+    let a = 1;
+    let b = 2;
+    console.log(`Before calling Pass by value 
+            Function -> a = ${a} b = ${b}`);
+      
+    Passbyvalue(a, b);
+      
+    console.log(`After calling Pass by value 
+           Function -> a =${a} b = ${b}`);
+
+           Pass by Reference: In Pass by Reference, Function is called by directly passing the reference/address of the variable as an argument. So changing the value inside the function also change the original value. In JavaScript array and Object follows pass by reference property.
+
+           In Pass by reference, parameters passed as an arguments does not create its own copy, it refers to the original value so changes made inside function affect the original value. 
+
+
+           function PassbyReference(obj) {
+            let tmp = obj.a;
+            obj.a = obj.b;
+            obj.b = tmp;
+          
+            console.log(`Inside Pass By Reference 
+                Function -> a = ${obj.a} b = ${obj.b}`);
+        }
+          
+        let obj = {
+            a: 10,
+            b: 20
+          
+        }
+        console.log(`Before calling Pass By Reference 
+            Function -> a = ${obj.a} b = ${obj.b}`);
+          
+        PassbyReference(obj)
+          
+        console.log(`After calling Pass By Reference 
+            Function -> a = ${obj.a} b = ${obj.b}`);
+
+</pre>
+<hr>
+
+<h3>  Please explain Self Invoking Function and its code    </h3>
+<br>
+
+<pre>
+
+    A self-invoking (also called self-executing) function is a nameless (anonymous) function that is invoked immediately after its definition.
+    An anonymous function is enclosed inside a set of parentheses followed by another set of parentheses (), which does the execution
+    (function(){
+        console.log(Math.PI);
+    })();
+    Self-invoking functions are useful for initialization tasks and for one-time code executions, without the need of creating global variables.
+    
+    Parameters can also be passed to self-invoking functions as shown in the example below.
+    
+    (function(x){
+        console.log(x);
+    })("Hello, World!");
+    A self-invoking function can have variables and methods but they cannot be accessed from outside of it. To access them, the global window object has to be passed as a parameter.
+    
+    Consider a self-invoking function below, containing the variable pi and the function e(). A global window object is passed and both pi and e() are assigned to the global variables window.pi and window.e respectively
+    
+    (function(){
+        var pi = 3.141;
+        function e() {
+            return Math.E;
+        }
+    
+        window.pi = pi;
+        window.e = e;
+    })(window);
+
+    In the browser console, the command pi will return 3.141 and the command e() will return 2.718281828459045.
+
+    > pi; // 3.141
+    > e(); // 2.718281828459045
+
+</pre>
+<hr>
+<h3>   What is an event loop and call stack   </h3>
+<br>
+
+<pre>
+    Event loop-
+    The event loop is the secret behind JavaScript’s asynchronous programming. JS executes all operations on a single thread, but using a few smart data structures, it gives us the illusion of multi-threading. Let’s take a look at what happens on the back-end.
+
+
+    Call Stack- 
+    The call stack is responsible for keeping track of all the operations in line to be executed. Whenever a function is finished, it is popped from the stack.
+
+</pre>
+<hr>
+
+
+
